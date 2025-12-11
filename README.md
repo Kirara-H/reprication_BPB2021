@@ -1,4 +1,4 @@
-# reprication_BPB2021
+# Reprication for Baehr, C. et al. (2021)
 ## TMF deforestation data
 TMF deforestation data is processed in GEE, using commune shape file (gadm41_KHM_3).
 The link to GEE code is available in "GEE_deforestation_data_extraction" text file.
