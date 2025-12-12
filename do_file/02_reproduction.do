@@ -1,5 +1,3 @@
-
-
 *===================================================================================
 * Set up
 *===================================================================================
@@ -168,6 +166,7 @@ estimates store out1_4
 reghdfe treecover trt_overall_road trt_overall_irrigation trt_overall_else temperature precipitation [aw=cell_count_30m], absorb(cell_id year) cluster(commune_id)
 estimates store out2_4
 */
+
 *-----------------------------------------------------
 * 5. TMF deforestation data
 *-----------------------------------------------------
@@ -249,9 +248,20 @@ estimates store out1_7
 reghdfe treecover trt_overall_road trt_overall_irrigation trt_overall_else c.year#c.(bombing_dummy burial_dummy memorial_dummy prison_dummy distance_to_city distance_to_road) temperature precipitation [aw = cell_count_30m], absorb(cell_id year) cluster(commune_id year)
 estimates store out2_7
 
+*-----------------------------------------------------
+* 8. Additional control 2 (the original paper)
+*-----------------------------------------------------
+gen ntl_00 = ntl if year == 2000
+bys cell_id: egen ntl_2000 = max(ntl_00)
+drop ntl_00
 
+* (1), (2)
+reghdfe ndvi trt_overall_road trt_overall_irrigation trt_overall_else c.year#c.(pop_density_2000 ntl_2000) temperature precipitation [aw = cell_count_30m], absorb(cell_id year) cluster(commune_id year)
+estimates store out1_8
 
-
+* (3), (4)
+reghdfe treecover trt_overall_road trt_overall_irrigation trt_overall_else c.year#c.(pop_density_2000 ntl_2000) temperature precipitation [aw = cell_count_30m], absorb(cell_id year) cluster(commune_id year)
+estimates store out2_8
 
 
 

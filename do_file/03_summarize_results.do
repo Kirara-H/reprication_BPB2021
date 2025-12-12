@@ -14,7 +14,7 @@
 *-----------------------------------------------------------*
 clear
 
-set obs 38
+set obs 42
 
 gen str15 analysis = ""
 gen float outcome = .
@@ -88,7 +88,7 @@ forvalues i = 1/4 {
 }
 
 * additional control
-foreach i in 7 {
+foreach i in 7 8{
     local v = `i' + 2
 	est restore out1_`i'
 	matrix b = e(b)
@@ -107,28 +107,28 @@ foreach i in 7 {
 est restore out1_0
 matrix b = e(b)
 matrix V = e(V)
-replace b = _b["trt_overall_irrigation"] in 10
-replace se     = _se["trt_overall_irrigation"] in 10
-replace p      = 2 * ttail(e(df_r), abs( b/se))  in 10
-replace outcome = 2 in 10
-replace treatment = 2 in 10
-replace analysis = "out1_0" in 10
-replace origpath = 1 in 10
+replace b = _b["trt_overall_irrigation"] in 11
+replace se     = _se["trt_overall_irrigation"] in 11
+replace p      = 2 * ttail(e(df_r), abs( b/se))  in 11
+replace outcome = 2 in 11
+replace treatment = 2 in 11
+replace analysis = "out1_0" in 11
+replace origpath = 1 in 11
 	
 * new did estimator: .0044542   .0009988
 est restore out1_irri
-replace b = e(Av_tot_effect) in 11
-replace se     = e(se_avg_total_effect) in 11
-replace p      = 2*(1 - normal(abs(b/se))) in 11
-replace outcome = 2 in 11
-replace treatment = 2 in 11
-replace analysis = "out1_1" in 11
-replace origpath = 0 in 11
+replace b = e(Av_tot_effect) in 12
+replace se     = e(se_avg_total_effect) in 12
+replace p      = 2*(1 - normal(abs(b/se))) in 12
+replace outcome = 2 in 12
+replace treatment = 2 in 12
+replace analysis = "out1_1" in 12
+replace origpath = 0 in 12
 
 
 * other replications
 forvalues i = 2/3 {
-    local v = `i' + 10
+    local v = `i' + 11
 	est restore out1_`i'
 	matrix b = e(b)
 	matrix V = e(V)
@@ -143,7 +143,7 @@ forvalues i = 2/3 {
 
 * binned analysis
 forvalues i = 1/4 {
-    local v = `i' + 13
+    local v = `i' + 14
 	est restore out1_6_irri_`i'
 	matrix b = e(b)
 	matrix V = e(V)
@@ -157,8 +157,8 @@ forvalues i = 1/4 {
 }
 
 * additional control
-foreach i in 7 {
-    local v = `i' + 11
+foreach i in 7 8{
+    local v = `i' + 12
 	est restore out1_`i'
 	matrix b = e(b)
 	matrix V = e(V)
@@ -176,28 +176,28 @@ foreach i in 7 {
 est restore out2_0
 matrix b = e(b)
 matrix V = e(V)
-replace b = _b["trt_overall_road"] in 19
-replace se     = _se["trt_overall_road"] in 19
-replace p      = 2 * ttail(e(df_r), abs( b/se)) in 19
-replace outcome = 3 in 19
-replace treatment = 1 in 19
-replace analysis = "out2_0" in 19
-replace origpath = 1 in 19
+replace b = _b["trt_overall_road"] in 21
+replace se     = _se["trt_overall_road"] in 21
+replace p      = 2 * ttail(e(df_r), abs( b/se)) in 21
+replace outcome = 3 in 21
+replace treatment = 1 in 21
+replace analysis = "out2_0" in 21
+replace origpath = 1 in 21
 	
 * new did estimator:  -.0065476   .0019217
 est restore out2_road
-replace b = e(Av_tot_effect) in 20
-replace se     = e(se_avg_total_effect) in 20
-replace p      = 2*(1 - normal(abs(b/se))) in 20
-replace outcome = 3 in 20
-replace treatment = 1 in 20
-replace analysis = "out2_1" in 20
-replace origpath = 0 in 20
+replace b = e(Av_tot_effect) in 22
+replace se     = e(se_avg_total_effect) in 22
+replace p      = 2*(1 - normal(abs(b/se))) in 22
+replace outcome = 3 in 22
+replace treatment = 1 in 22
+replace analysis = "out2_1" in 22
+replace origpath = 0 in 22
 
 
 * other replications
 forvalues i = 2/3 {
-    local v = `i' + 19
+    local v = `i' + 21
 	est restore out2_`i'
 	matrix b = e(b)
 	matrix V = e(V)
@@ -211,7 +211,7 @@ forvalues i = 2/3 {
 }
 
 foreach i in 5 {
-    local v = `i' + 18
+    local v = `i' + 20
 	est restore out2_`i'
 	matrix b = e(b)
 	matrix V = e(V)
@@ -226,7 +226,7 @@ foreach i in 5 {
 
 * binned analysis
 forvalues i = 1/4 {
-    local v = `i' + 23
+    local v = `i' + 25
 	est restore out2_6_road_`i'
 	matrix b = e(b)
 	matrix V = e(V)
@@ -240,8 +240,8 @@ forvalues i = 1/4 {
 }
 
 * additional control
-foreach i in 7 {
-    local v = `i' + 21
+foreach i in 7 8{
+    local v = `i' + 23
 	est restore out2_`i'
 	matrix b = e(b)
 	matrix V = e(V)
@@ -259,28 +259,28 @@ foreach i in 7 {
 est restore out2_0
 matrix b = e(b)
 matrix V = e(V)
-replace b = _b["trt_overall_irrigation"] in 29
-replace se     = _se["trt_overall_irrigation"] in 29
-replace p      = 2 * ttail(e(df_r), abs( b/se))  in 29
-replace outcome = 4 in 29
-replace treatment = 2 in 29
-replace analysis = "out2_0" in 29
-replace origpath = 1 in 29
+replace b = _b["trt_overall_irrigation"] in 32
+replace se     = _se["trt_overall_irrigation"] in 32
+replace p      = 2 * ttail(e(df_r), abs( b/se))  in 32
+replace outcome = 4 in 32
+replace treatment = 2 in 32
+replace analysis = "out2_0" in 32
+replace origpath = 1 in 32
 	
 * new did estimator: 
 est restore out2_irri
-replace b = e(Av_tot_effect) in 30
-replace se     = e(se_avg_total_effect) in 30
-replace p      = 2*(1 - normal(abs(b/se))) in 30
-replace outcome = 4 in 30
-replace treatment = 2 in 30
-replace analysis = "out2_1" in 30
-replace origpath = 0 in 30
+replace b = e(Av_tot_effect) in 33
+replace se     = e(se_avg_total_effect) in 33
+replace p      = 2*(1 - normal(abs(b/se))) in 33
+replace outcome = 4 in 33
+replace treatment = 2 in 33
+replace analysis = "out2_1" in 33
+replace origpath = 0 in 33
 
 
 * other replications
 forvalues i = 2/3 {
-    local v = `i' + 29
+    local v = `i' + 32
 	est restore out2_`i'
 	matrix b = e(b)
 	matrix V = e(V)
@@ -293,7 +293,7 @@ forvalues i = 2/3 {
 	replace origpath = 0 in `v'
 }
 foreach i in 5 {
-    local v = `i' + 28
+    local v = `i' + 31
 	est restore out2_`i'
 	matrix b = e(b)
 	matrix V = e(V)
@@ -308,7 +308,7 @@ foreach i in 5 {
 
 * binned analysis
 forvalues i = 1/4 {
-    local v = `i' + 33
+    local v = `i' + 36
 	est restore out2_6_irri_`i'
 	matrix b = e(b)
 	matrix V = e(V)
@@ -322,8 +322,8 @@ forvalues i = 1/4 {
 }
 
 * additional control
-foreach i in 7 {
-    local v = `i' + 31
+foreach i in 7 8{
+    local v = `i' + 34
 	est restore out2_`i'
 	matrix b = e(b)
 	matrix V = e(V)
@@ -337,7 +337,7 @@ foreach i in 7 {
 }
 
 *-----------------------------------------------------------*
-* Step 4: Display the table
+* Step 4: Display the result
 *-----------------------------------------------------------*
 *gen origpath = cond(analysis == "spec1", 1, 0)
 
@@ -348,6 +348,12 @@ label define ltreat 1 "road" 2 "irrigation"
 label val treatment ltreat 
 
 save "D:\homma\PhD_2025\Replication_game\output\repframe_v3.dta", replace
-*export delimited "D:\homma\PhD_2025\Replication_game\output\repframe.csv", replace
+
 repframe outcome, beta(b) se(se) pval(p) origpath(origpath) siglevel_orig(10) siglevel(5) shortref("KH")
 
+* output
+** figure
+graph export "D:\homma\PhD_2025\Replication_game\output\dashboard_main_v2.jpg", as(jpg) name("dashboard_main") quality(90)
+
+** table
+export delimited "D:\homma\PhD_2025\Replication_game\output\repframe.csv", replace
