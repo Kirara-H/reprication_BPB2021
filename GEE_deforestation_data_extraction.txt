@@ -1,2 +1,2 @@
 Google Earth Engine script to extract TMF deforestation data:
-https://code.earthengine.google.com/670ead12497447ae277ace8b99544e69
+https://code.earthengine.google.com/6c85a16d731e100a7f6d8355b6612e5f
