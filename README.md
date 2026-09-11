@@ -5,7 +5,8 @@ The link to GEE code is available in "GEE_deforestation_data_extraction" text fi
 The extracted data is cleaned and saved as dta format (see "01_deforestation_data.do").
 
 ## Reproduction
-All robustness checks by TMFE are conducted in 02_reproduction_v2.do. All robustness checks by the new DiD estimator are conducted in 03_reproduction_rc_by_new_est.do. 
-The reproduced results are summarized and the reproducibility dashboard is created in 03-07 do files.
-The specofication curve is plotted in 09_specification_curve.do,
-The sensitivity analysis is conduceted in R (10_sensitivity_analysis_sensemakr.R).
+All robustness checks by TMFE are conducted in 02_reproduction_twfe.do. All robustness checks by the new DiD estimator are conducted in 03_reproduction_new_est.do. 
+The reproduced results are summarized and the reproducibility dashboard is created in 04 and 08 do files.
+The specification curve is plotted in 05_specification_curve_twfe_FigA1.do,
+The sensitivity analysis is conducted in R (10_sensitivity_analysis_sensemakr.R).
+TMF tree cover data is cleaned in 01_deforestation_data.do and analyzed in 09_TMF_tree_cover_Table4.do.
